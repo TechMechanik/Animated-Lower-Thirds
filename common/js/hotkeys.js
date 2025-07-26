@@ -1,3 +1,7 @@
+// Original Author: NoeAL
+// Edited and maintained by: TechMechanik
+// Project: Animated Lower Thirds
+// GitHub: https://github.com/techmechanik
 hotkeyMasterSwitch = 0;
 hotkeySwitch1 = 0;
 hotkeySwitch2 = 0;
