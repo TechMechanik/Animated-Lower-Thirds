@@ -538,28 +538,34 @@ body {
 
 #lower-third-3.left{
     left: var(--alt-3-margin-h);
-    bottom: var(--alt-3-margin-v);
+    top: var(--alt-3-margin-v);
+    bottom: unset !important;
 }
 #lower-third-3.right{
     flex-direction: row-reverse;
     right: var(--alt-3-margin-h);
-    bottom: var(--alt-3-margin-v);
+    top: var(--alt-3-margin-v);
+    bottom: unset !important;
 }
 #lower-third-3.center{
-	bottom: var(--alt-3-margin-v);
+	top: var(--alt-3-margin-v);
+    bottom: unset !important;
 }
 
 #lower-third-4.left{
     left: var(--alt-4-margin-h);
-    bottom: var(--alt-4-margin-v);
+    top: var(--alt-4-margin-v);
+    bottom: unset !important;
 }
 #lower-third-4.right{
     flex-direction: row-reverse;
     right: var(--alt-4-margin-h);
-    bottom: var(--alt-4-margin-v);
+    top: var(--alt-4-margin-v);
+    bottom: unset !important;
 }
 #lower-third-4.center{
-	bottom: var(--alt-4-margin-v);
+	top: var(--alt-4-margin-v);
+    bottom: unset !important;
 }
 
 .hide-anim {
