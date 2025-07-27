@@ -1211,8 +1211,25 @@
 			function loadDefaultValues() {
 				$("[id^=alt-][id$=-style]").val(default_style);
 				$("[id^=alt-][id$=-size]").val(default_size);
+
+				// ALT-1: lower left
 				$("[id^=alt-][id$=-margin-h]").val(default_margin_h);
 				$("[id^=alt-][id$=-margin-v]").val(default_margin_v);
+
+				// ALT-2: lower right
+				$("#alt-2-align-right").prop('checked', true).change();
+				$("#alt-2-margin-v").val(55); // max vertical margin (bottom)
+				$("#alt-2-margin-h").val(100); // max horizontal margin (right)
+
+				// ALT-3: upper left
+				$("#alt-3-align-left").prop('checked', true).change();
+				$("#alt-3-margin-v").val(0); // min vertical margin (top)
+				$("#alt-3-margin-h").val(0); // min horizontal margin (left)
+
+				// ALT-4: upper right
+				$("#alt-4-align-right").prop('checked', true).change();
+				$("#alt-4-margin-v").val(0); // min vertical margin (top)
+				$("#alt-4-margin-h").val(100); // max horizontal margin (right)
 
 				$("[id^=alt-][id$=-inverse-ratio]").val(default_inverse_ratio);
 				$("[id^=alt-][id$=-line-spacing]").val(default_line_spacing);
@@ -2083,7 +2100,7 @@
 			}
 			function okResetPopup() {
 				localStorage.clear(); //To clear data fields
-
+				loadDefaultValues();
 				//Restore logo default (fix missing logos in the reload)
 				$('.logo-storable').each(function(){
 					var id = $(this).attr('id');
