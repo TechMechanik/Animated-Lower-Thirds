@@ -3577,6 +3577,7 @@
 
 			//Copy all data to clipboard
 			function exportData() {
+				syncSlotsToLocalStorage();
 				var allData = getLocalStorage();
 				document.getElementById("dataInput").value = allData;
 				var copyText = document.getElementById("dataInput");
@@ -3589,6 +3590,40 @@
 				document.execCommand("copy");
         	}
 
+			function syncSlotsToLocalStorage() {
+				for (let i = 1; i <= 10; i++) {
+					let name = document.getElementById(`alt-1-name-${i}`).textContent;
+					let info = document.getElementById(`alt-1-info-${i}`).textContent;
+					let logo = document.getElementById(`alt-1-logo-${i}`).textContent;
+					localStorage.setItem(`alt-1-name-${i}`, name);
+					localStorage.setItem(`alt-1-info-${i}`, info);
+					localStorage.setItem(`alt-1-logo-${i}`, logo);
+				}
+				for (let i = 1; i <= 10; i++) {
+					let name = document.getElementById(`alt-2-name-${i}`).textContent;
+					let info = document.getElementById(`alt-2-info-${i}`).textContent;
+					let logo = document.getElementById(`alt-2-logo-${i}`).textContent;
+					localStorage.setItem(`alt-2-name-${i}`, name);
+					localStorage.setItem(`alt-2-info-${i}`, info);
+					localStorage.setItem(`alt-2-logo-${i}`, logo);
+				}
+				for (let i = 1; i <= 10; i++) {
+					let name = document.getElementById(`alt-3-name-${i}`).textContent;
+					let info = document.getElementById(`alt-3-info-${i}`).textContent;
+					let logo = document.getElementById(`alt-3-logo-${i}`).textContent;
+					localStorage.setItem(`alt-3-name-${i}`, name);
+					localStorage.setItem(`alt-3-info-${i}`, info);
+					localStorage.setItem(`alt-3-logo-${i}`, logo);
+				}
+				for (let i = 1; i <= 10; i++) {
+					let name = document.getElementById(`alt-4-name-${i}`).textContent;
+					let info = document.getElementById(`alt-4-info-${i}`).textContent;
+					let logo = document.getElementById(`alt-4-logo-${i}`).textContent;
+					localStorage.setItem(`alt-4-name-${i}`, name);
+					localStorage.setItem(`alt-4-info-${i}`, info);
+					localStorage.setItem(`alt-4-logo-${i}`, logo);
+				}
+			}
 
 			function loadData () {
 				$('.storable').each(function(){    
