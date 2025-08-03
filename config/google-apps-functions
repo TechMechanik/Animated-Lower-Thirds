@@ -1,0 +1,208 @@
+function exportAllSheetsToFlatJson() {
+  const folderId = '1AjPn10mcKp3G0w68HGMlYEIawjooPdsP'; // your Drive folder ID
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const folder = DriveApp.getFolderById(folderId);
+
+  const jsonObject = {};
+  const seenKeys = new Set();
+  const sheets = ss.getSheets();
+
+  for (const sheet of sheets) {
+    const sheetName = sheet.getName();
+    if (sheetName.toLowerCase() === "instructions") continue;
+
+    // Ensure hidden sheets like "Default" are processed
+    sheet.showSheet();
+
+    const data = sheet.getDataRange().getValues();
+    if (data.length < 2) continue;
+
+    const headers = data[0].map(h => h.toString().toLowerCase());
+    if (headers[0] !== "key" || headers[1] !== "value") continue;
+
+    for (let i = 1; i < data.length; i++) {
+      const key = data[i][0];
+      const value = data[i][1];
+
+      if (!key) continue;
+
+      if (seenKeys.has(key)) {
+        SpreadsheetApp.getUi().alert(`Duplicate key "${key}" found in sheet "${sheet.getName()}" at row ${i + 1}`);
+        return;
+      }
+
+      seenKeys.add(key);
+      jsonObject[key] = value;
+    }
+  }
+
+  const jsonOutput = JSON.stringify(jsonObject, null, 2);
+
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const yyyy = today.getFullYear();
+  const dateStr = `${dd}${mm}${yyyy}`;
+  const filename = `uuff-obs-overlay-${dateStr}.json`;
+
+  const existingFiles = folder.getFilesByName(filename);
+  while (existingFiles.hasNext()) {
+    existingFiles.next().setTrashed(true);
+  }
+
+  const newFile = folder.createFile(filename, jsonOutput, MimeType.PLAIN_TEXT);
+  sheets[0].getRange("D1").setValue(`=HYPERLINK("${newFile.getUrl()}", "Download JSON")`);
+
+  SpreadsheetApp.getUi().alert(`JSON saved as "${filename}" combining all sheets.`);
+}
+
+
+function validateSheetsForExport() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const seenKeys = new Set();
+  const sheets = ss.getSheets();
+  let issues = [];
+
+  for (const sheet of sheets) {
+    const data = sheet.getDataRange().getValues();
+    if (data.length < 2) continue;
+
+    const headers = data[0].map(h => h.toString().toLowerCase());
+    if (headers[0] !== "key" || headers[1] !== "value") continue;
+
+    for (let i = 1; i < data.length; i++) {
+      const key = data[i][0];
+      const row = i + 1;
+
+      if (!key) {
+        issues.push(`Empty key in sheet "${sheet.getName()}" at row ${row}`);
+        continue;
+      }
+
+      if (seenKeys.has(key)) {
+        issues.push(`Duplicate key "${key}" found in sheet "${sheet.getName()}" at row ${row}`);
+        continue;
+      }
+
+      seenKeys.add(key);
+    }
+  }
+
+  if (issues.length > 0) {
+    SpreadsheetApp.getUi().alert("Validation issues:\n" + issues.join("\n"));
+  } else {
+    SpreadsheetApp.getUi().alert("All sheets validated successfully — no issues found.");
+  }
+}
+
+
+function importFlatJsonToSheetsFromDrive() {
+  const folderId = '1AjPn10mcKp3G0w68HGMlYEIawjooPdsP';
+  const fileName = 'default.json';
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  const folder = DriveApp.getFolderById(folderId);
+  const files = folder.getFilesByName(fileName);
+  if (!files.hasNext()) {
+    SpreadsheetApp.getUi().alert(`File "${fileName}" not found in folder.`);
+    return;
+  }
+
+  const file = files.next();
+  const jsonText = file.getBlob().getDataAsString();
+  let jsonObject;
+  try {
+    jsonObject = JSON.parse(jsonText);
+  } catch (e) {
+    SpreadsheetApp.getUi().alert("Failed to parse JSON: " + e.message);
+    return;
+  }
+
+  const categorized = {
+    'Bottom-Left': [],
+    'Bottom-Right': [],
+    'Top-Left': [],
+    'Top-Right': [],
+    'Default': []
+  };
+
+  for (const [key, value] of Object.entries(jsonObject)) {
+    if (key.startsWith('bottom-left-name') || key.startsWith('bottom-left-value')) {
+      categorized['Bottom-Left'].push([key, value]);
+    } else if (key.startsWith('bottom-right-name') || key.startsWith('bottom-right-value')) {
+      categorized['Bottom-Right'].push([key, value]);
+    } else if (key.startsWith('top-left-name') || key.startsWith('top-left-value')) {
+      categorized['Top-Left'].push([key, value]);
+    } else if (key.startsWith('top-right-name') || key.startsWith('top-right-value')) {
+      categorized['Top-Right'].push([key, value]);
+    } else {
+      categorized['Default'].push([key, value]);
+    }
+  }
+
+  for (const [sheetName, entries] of Object.entries(categorized)) {
+    let sheet = ss.getSheetByName(sheetName);
+    if (!sheet) {
+      sheet = ss.insertSheet(sheetName);
+    } else {
+      sheet.clearContents();
+    }
+    sheet.getRange(1, 1, 1, 2).setValues([["Key", "Value"]]);
+    if (entries.length > 0) {
+      sheet.getRange(2, 1, entries.length, 2).setValues(entries);
+    }
+  }
+
+  SpreadsheetApp.getUi().alert("JSON imported and distributed to logical sheets.");
+}
+
+
+function insertInstructionsToFrontSheet() {
+  const sheetName = 'Instructions'; // Change if needed
+  const textBlock = `
+UUFF OBS OVERLAY – INSTRUCTIONS FOR USE
+
+Welcome!
+This Google Sheet is designed to make it easy for presenters and staff to input content for the UUFF OBS Overlay.
+
+After entering your content, click the 📤 Export to JSON button to the right to generate the file needed by the UUFF Tech Team.
+
+WHAT THIS SHEET DOES:
+• Organizes overlay content into logical tabs for each screen quadrant
+• Helps guide consistent data entry
+• Automatically generates a correctly formatted .json file for use in OBS
+
+INSTRUCTIONS PER TAB:
+Top-Left: Enter content for the Top Left corner of the overlay (e.g. top-left-name-1)
+Top-Right: Use for announcements, donations, etc.
+Bottom-Left: Speaker names and songs
+Bottom-Right: Lyrics or brief text
+Default: Usually does not need edits (Tech Team manages this tab)
+
+DATA ENTRY FORMAT:
+• Column A: Key (locked)
+• Column B: Value (editable content shown in overlay)
+
+WHEN READY TO EXPORT:
+1. Click the Export to JSON button
+2. Wait for the file to upload to Drive
+3. A download link will appear in cell D1
+
+VALIDATION (OPTIONAL):
+• Click the ✅ Validate Data button
+• Confirms all keys are present and unique
+
+NEED HELP?
+Please reach out to the UUFF Tech Team.
+`;
+
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName) || SpreadsheetApp.getActiveSpreadsheet().insertSheet(sheetName);
+  sheet.clear();
+  const lines = textBlock.trim().split('\n');
+  lines.forEach((line, i) => {
+    sheet.getRange(i + 1, 1).setValue(line);
+  });
+
+  sheet.setColumnWidth(1, 600);
+  sheet.getRange(1, 1, lines.length, 1).setWrap(true);
+}

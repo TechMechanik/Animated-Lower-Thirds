@@ -18,16 +18,16 @@
   <body class="browser-source lower-thirds">
 		<!--Lower third 1-->
 		<div id="lower-third-1" class="alt left style-1 hide-anim">
-			<div id="alt-1-logo" class="logo no-logo">
-				<img id="alt-1-logo-image" src="//:0" />
+			<div id="bottom-left-logo" class="logo no-logo">
+				<img id="bottom-left-logo-image" src="//:0" />
 			</div>
 			<div class="graph-1"></div>
 			<div class="text-content">
 				<div class="text-mask">
-					<div id="alt-1-name"></div>
+					<div id="bottom-left-name"></div>
 				</div>
 				<div class="text-mask">
-					<div id="alt-1-info"></div>
+					<div id="bottom-left-value"></div>
 				</div>
 			</div>
 			<div class="graph-2"></div>
@@ -35,16 +35,16 @@
 
 		<!--Lower third 2-->
 		<div id="lower-third-2" class="alt left style-1 hide-anim">
-			<div id="alt-2-logo" class="logo no-logo">
-				<img id="alt-2-logo-image" src="//:0" />
+			<div id="bottom-right-logo" class="logo no-logo">
+				<img id="bottom-right-logo-image" src="//:0" />
 			</div>
 			<div class="graph-1"></div>
 			<div class="text-content">
 				<div class="text-mask">
-					<div id="alt-2-name"></div>
+					<div id="bottom-right-name"></div>
 				</div>
 				<div class="text-mask">
-					<div id="alt-2-info"></div>
+					<div id="bottom-right-value"></div>
 				</div>
 			</div>
 			<div class="graph-2"></div>
@@ -52,16 +52,16 @@
 
 		<!--Lower third 3-->
 		<div id="lower-third-3" class="alt left style-1 hide-anim">
-			<div id="alt-3-logo" class="logo no-logo">
-				<img id="alt-3-logo-image" src="//:0" />
+			<div id="top-left-logo" class="logo no-logo">
+				<img id="top-left-logo-image" src="//:0" />
 			</div>
 			<div class="graph-1"></div>
 			<div class="text-content">
 				<div class="text-mask">
-					<div id="alt-3-name"></div>
+					<div id="top-left-name"></div>
 				</div>
 				<div class="text-mask">
-					<div id="alt-3-info"></div>
+					<div id="top-left-value"></div>
 				</div>
 			</div>
 			<div class="graph-2"></div>
@@ -69,16 +69,16 @@
 
 		<!--Lower third 4-->
 		<div id="lower-third-4" class="alt left style-1 hide-anim">
-			<div id="alt-4-logo" class="logo no-logo">
-				<img id="alt-4-logo-image" src="//:0" />
+			<div id="top-right-logo" class="logo no-logo">
+				<img id="top-right-logo-image" src="//:0" />
 			</div>
 			<div class="graph-1"></div>
 			<div class="text-content">
 				<div class="text-mask">
-					<div id="alt-4-name"></div>
+					<div id="top-right-name"></div>
 				</div>
 				<div class="text-mask">
-					<div id="alt-4-info"></div>
+					<div id="top-right-value"></div>
 				</div>
 			</div>
 			<div class="graph-2"></div>
@@ -387,35 +387,35 @@
 
 		function changeLogoVisibility(alt_1_logo_switch, alt_1_logo_image, alt_2_logo_switch, alt_2_logo_image, alt_3_logo_switch, alt_3_logo_image, alt_4_logo_switch, alt_4_logo_image) {
 			if (alt_1_logo_switch == "true") {
-				$("#alt-1-logo").removeClass("no-logo");
-				loadLogo("alt-1-logo-image", alt_1_logo_image);
+				$("#bottom-left-logo").removeClass("no-logo");
+				loadLogo("bottom-left-logo-image", alt_1_logo_image);
 			} else {
-				$("#alt-1-logo").addClass("no-logo");
-				loadLogo("alt-1-logo-image");
+				$("#bottom-left-logo").addClass("no-logo");
+				loadLogo("bottom-left-logo-image");
 			}
 
 			if (alt_2_logo_switch == "true") {
-				$("#alt-2-logo").removeClass("no-logo");
-				loadLogo("alt-2-logo-image", alt_2_logo_image);
+				$("#bottom-right-logo").removeClass("no-logo");
+				loadLogo("bottom-right-logo-image", alt_2_logo_image);
 			} else {
-				$("#alt-2-logo").addClass("no-logo");
-				loadLogo("alt-2-logo-image");
+				$("#bottom-right-logo").addClass("no-logo");
+				loadLogo("bottom-right-logo-image");
 			}
 
 			if (alt_3_logo_switch == "true") {
-				$("#alt-3-logo").removeClass("no-logo");
-				loadLogo("alt-3-logo-image", alt_3_logo_image);
+				$("#top-left-logo").removeClass("no-logo");
+				loadLogo("top-left-logo-image", alt_3_logo_image);
 			} else {
-				$("#alt-3-logo").addClass("no-logo");
-				loadLogo("alt-3-logo-image");
+				$("#top-left-logo").addClass("no-logo");
+				loadLogo("top-left-logo-image");
 			}
 
 			if (alt_4_logo_switch == "true") {
-				$("#alt-4-logo").removeClass("no-logo");
-				loadLogo("alt-4-logo-image", alt_4_logo_image);
+				$("#top-right-logo").removeClass("no-logo");
+				loadLogo("top-right-logo-image", alt_4_logo_image);
 			} else {
-				$("#alt-4-logo").addClass("no-logo");
-				loadLogo("alt-4-logo-image");
+				$("#top-right-logo").addClass("no-logo");
+				loadLogo("top-right-logo-image");
 			}
 		}
 
@@ -438,8 +438,8 @@
 				alt_1_logo_size, alt_1_shadow_amount, alt_1_corners, alt_1_border_switch} = received_data;
 			let {alt_1_switch, alt_1_preview, alt_1_style_color_1, alt_1_style_color_2, alt_1_line_spacing, alt_1_border_thickness_amount, alt_1_style_color_3, alt_1_style_color_4} = received_data;
 
-			document.getElementById("alt-1-name").innerHTML = alt_1_name;
-			document.getElementById("alt-1-info").innerHTML = alt_1_info;
+			document.getElementById("bottom-left-name").innerHTML = alt_1_name;
+			document.getElementById("bottom-left-value").innerHTML = alt_1_info;
 
 			if (alt_1_background_switch == "false"){
 				alt_1_style_color_1 = "none";
@@ -467,8 +467,8 @@
 				alt_2_logo_size, alt_2_shadow_amount, alt_2_corners, alt_2_border_switch} = received_data;
 			let {alt_2_switch, alt_2_preview, alt_2_style_color_1, alt_2_style_color_2, alt_2_line_spacing, alt_2_border_thickness_amount, alt_2_style_color_3, alt_2_style_color_4} = received_data;
 
-			document.getElementById("alt-2-name").innerHTML = alt_2_name;
-			document.getElementById("alt-2-info").innerHTML = alt_2_info;
+			document.getElementById("bottom-right-name").innerHTML = alt_2_name;
+			document.getElementById("bottom-right-value").innerHTML = alt_2_info;
 
 			if (alt_2_background_switch == "false"){
 				alt_2_style_color_1 = "none";
@@ -495,8 +495,8 @@
 				alt_3_logo_size, alt_3_shadow_amount, alt_3_corners, alt_3_border_switch} = received_data;
 			let {alt_3_switch, alt_3_preview, alt_3_style_color_1, alt_3_style_color_2, alt_3_line_spacing, alt_3_border_thickness_amount, alt_3_style_color_3, alt_3_style_color_4} = received_data;
 
-			document.getElementById("alt-3-name").innerHTML = alt_3_name;
-			document.getElementById("alt-3-info").innerHTML = alt_3_info;
+			document.getElementById("top-left-name").innerHTML = alt_3_name;
+			document.getElementById("top-left-value").innerHTML = alt_3_info;
 
 			if (alt_3_background_switch == "false"){
 				alt_3_style_color_1 = "none";
@@ -523,8 +523,8 @@
 				alt_4_logo_size, alt_4_shadow_amount, alt_4_corners, alt_4_border_switch} = received_data;
 			let {alt_4_switch, alt_4_preview, alt_4_style_color_1, alt_4_style_color_2, alt_4_line_spacing, alt_4_border_thickness_amount, alt_4_style_color_3, alt_4_style_color_4} = received_data;
 
-			document.getElementById("alt-4-name").innerHTML = alt_4_name;
-			document.getElementById("alt-4-info").innerHTML = alt_4_info;
+			document.getElementById("top-right-name").innerHTML = alt_4_name;
+			document.getElementById("top-right-value").innerHTML = alt_4_info;
 
 			if (alt_4_background_switch == "false"){
 				alt_4_style_color_1 = "none";
@@ -740,22 +740,22 @@
 
 			//Load logo when it change
 			if (alt_1_logo_image != alt_1_logo_image_old) {
-				loadLogo("alt-1-logo-image", alt_1_logo_image);
+				loadLogo("bottom-left-logo-image", alt_1_logo_image);
 			}
 			alt_1_logo_image_old = alt_1_logo_image;
 
 			if (alt_2_logo_image != alt_2_logo_image_old) {
-				loadLogo("alt-2-logo-image", alt_2_logo_image);
+				loadLogo("bottom-right-logo-image", alt_2_logo_image);
 			}
 			alt_2_logo_image_old = alt_2_logo_image;
 
 			if (alt_3_logo_image != alt_3_logo_image_old) {
-				loadLogo("alt-3-logo-image", alt_3_logo_image);
+				loadLogo("top-left-logo-image", alt_3_logo_image);
 			}
 			alt_3_logo_image_old = alt_3_logo_image;
 
 			if (alt_4_logo_image != alt_4_logo_image_old) {
-				loadLogo("alt-4-logo-image", alt_4_logo_image);
+				loadLogo("top-right-logo-image", alt_4_logo_image);
 			}
 			alt_4_logo_image_old = alt_4_logo_image;
 
@@ -768,203 +768,203 @@
 
 			//Show or hide Background
 			// if (alt_1_background_switch == "true"){
-			// 	root.style.setProperty('--alt-1-background', "1");
+			// 	root.style.setProperty('--bottom-left-background', "1");
 			// } else {
-			// 	root.style.setProperty('--alt-1-background', "0");
+			// 	root.style.setProperty('--bottom-left-background', "0");
 			// }
 
 			// if (alt_2_background_switch == "true"){
-			// 	root.style.setProperty('--alt-2-background', "1");
+			// 	root.style.setProperty('--bottom-right-background', "1");
 			// } else {
-			// 	root.style.setProperty('--alt-2-background', "0");
+			// 	root.style.setProperty('--bottom-right-background', "0");
 			// }
 			// if (alt_3_background_switch == "true"){
-			// 	root.style.setProperty('--alt-3-background', "1");
+			// 	root.style.setProperty('--top-left-background', "1");
 			// } else {
-			// 	root.style.setProperty('--alt-3-background', "0");
+			// 	root.style.setProperty('--top-left-background', "0");
 			// }
 			// if (alt_4_background_switch == "true"){
-			// 	root.style.setProperty('--alt-4-background', "1");
+			// 	root.style.setProperty('--top-right-background', "1");
 			// } else {
-			// 	root.style.setProperty('--alt-4-background', "0");
+			// 	root.style.setProperty('--top-right-background', "0");
 			// }
 
 			//root.style.setProperty('--animation-time', global_animation_time + "s"); no hace falta enviar el global
-			root.style.setProperty('--alt-1-animation-time', alt_1_animation_time + "s");
-			root.style.setProperty('--alt-2-animation-time', alt_2_animation_time + "s");
-			root.style.setProperty('--alt-3-animation-time', alt_3_animation_time + "s");
-			root.style.setProperty('--alt-4-animation-time', alt_4_animation_time + "s");
+			root.style.setProperty('--bottom-left-animation-time', alt_1_animation_time + "s");
+			root.style.setProperty('--bottom-right-animation-time', alt_2_animation_time + "s");
+			root.style.setProperty('--top-left-animation-time', alt_3_animation_time + "s");
+			root.style.setProperty('--top-right-animation-time', alt_4_animation_time + "s");
 
 			//texts styling
-			root.style.setProperty('--alt-1-size', alt_1_size + "px");
-			root.style.setProperty('--alt-1-margin-h', alt_1_margin_h + "rem");
-			root.style.setProperty('--alt-1-margin-v', alt_1_margin_v + "rem");
-			root.style.setProperty('--alt-1-line-spacing', alt_1_line_spacing + "em");
-			root.style.setProperty('--alt-1-name-size', alt_1_name_size + "em");
-			root.style.setProperty('--alt-1-info-size', alt_1_info_size + "em");
-			root.style.setProperty('--alt-1-name-transform', alt_1_name_transform);
-			root.style.setProperty('--alt-1-info-transform', alt_1_info_transform);
-			root.style.setProperty('--alt-1-name-weight', alt_1_name_weight);
-			root.style.setProperty('--alt-1-name-style', alt_1_name_style);
-			root.style.setProperty('--alt-1-info-weight', alt_1_info_weight);
-			root.style.setProperty('--alt-1-info-style', alt_1_info_style);
-			root.style.setProperty('--alt-1-name-color', alt_1_name_color);
-			root.style.setProperty('--alt-1-info-color', alt_1_info_color);
-			root.style.setProperty('--alt-1-style-color-1', alt_1_style_color_1);
-			root.style.setProperty('--alt-1-style-color-2', alt_1_style_color_2);
-			root.style.setProperty('--alt-1-style-color-3', alt_1_style_color_3);
-			root.style.setProperty('--alt-1-style-color-4', alt_1_style_color_4);
-			root.style.setProperty('--alt-1-font', alt_1_font);
-			root.style.setProperty('--alt-1-logo-size', alt_1_logo_size + "em");
-			root.style.setProperty('--alt-1-corners', alt_1_corners + "em");
-			root.style.setProperty('--alt-1-border-switch', alt_1_border_switch);
-			root.style.setProperty('--alt-1-border_thickness_amount', alt_1_border_thickness_amount + "rem");
+			root.style.setProperty('--bottom-left-size', alt_1_size + "px");
+			root.style.setProperty('--bottom-left-margin-h', alt_1_margin_h + "rem");
+			root.style.setProperty('--bottom-left-margin-v', alt_1_margin_v + "rem");
+			root.style.setProperty('--bottom-left-line-spacing', alt_1_line_spacing + "em");
+			root.style.setProperty('--bottom-left-name-size', alt_1_name_size + "em");
+			root.style.setProperty('--bottom-left-value-size', alt_1_info_size + "em");
+			root.style.setProperty('--bottom-left-name-transform', alt_1_name_transform);
+			root.style.setProperty('--bottom-left-value-transform', alt_1_info_transform);
+			root.style.setProperty('--bottom-left-name-weight', alt_1_name_weight);
+			root.style.setProperty('--bottom-left-name-style', alt_1_name_style);
+			root.style.setProperty('--bottom-left-value-weight', alt_1_info_weight);
+			root.style.setProperty('--bottom-left-value-style', alt_1_info_style);
+			root.style.setProperty('--bottom-left-name-color', alt_1_name_color);
+			root.style.setProperty('--bottom-left-value-color', alt_1_info_color);
+			root.style.setProperty('--bottom-left-style-color-1', alt_1_style_color_1);
+			root.style.setProperty('--bottom-left-style-color-2', alt_1_style_color_2);
+			root.style.setProperty('--bottom-left-style-color-3', alt_1_style_color_3);
+			root.style.setProperty('--bottom-left-style-color-4', alt_1_style_color_4);
+			root.style.setProperty('--bottom-left-font', alt_1_font);
+			root.style.setProperty('--bottom-left-logo-size', alt_1_logo_size + "em");
+			root.style.setProperty('--bottom-left-corners', alt_1_corners + "em");
+			root.style.setProperty('--bottom-left-border-switch', alt_1_border_switch);
+			root.style.setProperty('--bottom-left-border_thickness_amount', alt_1_border_thickness_amount + "rem");
 
-			root.style.setProperty('--alt-2-size', alt_2_size + "px");
-			root.style.setProperty('--alt-2-margin-h', alt_2_margin_h + "rem");
-			root.style.setProperty('--alt-2-margin-v', alt_2_margin_v + "rem");
-			root.style.setProperty('--alt-2-line-spacing', alt_2_line_spacing + "em");
-			root.style.setProperty('--alt-2-name-size', alt_2_name_size + "em");
-			root.style.setProperty('--alt-2-info-size', alt_2_info_size + "em");
-			root.style.setProperty('--alt-2-name-transform', alt_2_name_transform);
-			root.style.setProperty('--alt-2-info-transform', alt_2_info_transform);
-			root.style.setProperty('--alt-2-name-weight', alt_2_name_weight);
-			root.style.setProperty('--alt-2-name-style', alt_2_name_style);
-			root.style.setProperty('--alt-2-info-weight', alt_2_info_weight);
-			root.style.setProperty('--alt-2-info-style', alt_2_info_style);
-			root.style.setProperty('--alt-2-name-color', alt_2_name_color);
-			root.style.setProperty('--alt-2-info-color', alt_2_info_color);
-			root.style.setProperty('--alt-2-style-color-1', alt_2_style_color_1);
-			root.style.setProperty('--alt-2-style-color-2', alt_2_style_color_2);
-			root.style.setProperty('--alt-2-style-color-3', alt_2_style_color_3);
-			root.style.setProperty('--alt-2-style-color-4', alt_2_style_color_4);
-			root.style.setProperty('--alt-2-font', alt_2_font);
-			root.style.setProperty('--alt-2-logo-size', alt_2_logo_size + "em");
-			root.style.setProperty('--alt-2-corners', alt_2_corners + "em");
-			root.style.setProperty('--alt-2-border-switch', alt_2_border_switch);
-			root.style.setProperty('--alt-2-border_thickness_amount', alt_2_border_thickness_amount + "rem");			
+			root.style.setProperty('--bottom-right-size', alt_2_size + "px");
+			root.style.setProperty('--bottom-right-margin-h', alt_2_margin_h + "rem");
+			root.style.setProperty('--bottom-right-margin-v', alt_2_margin_v + "rem");
+			root.style.setProperty('--bottom-right-line-spacing', alt_2_line_spacing + "em");
+			root.style.setProperty('--bottom-right-name-size', alt_2_name_size + "em");
+			root.style.setProperty('--bottom-right-value-size', alt_2_info_size + "em");
+			root.style.setProperty('--bottom-right-name-transform', alt_2_name_transform);
+			root.style.setProperty('--bottom-right-value-transform', alt_2_info_transform);
+			root.style.setProperty('--bottom-right-name-weight', alt_2_name_weight);
+			root.style.setProperty('--bottom-right-name-style', alt_2_name_style);
+			root.style.setProperty('--bottom-right-value-weight', alt_2_info_weight);
+			root.style.setProperty('--bottom-right-value-style', alt_2_info_style);
+			root.style.setProperty('--bottom-right-name-color', alt_2_name_color);
+			root.style.setProperty('--bottom-right-value-color', alt_2_info_color);
+			root.style.setProperty('--bottom-right-style-color-1', alt_2_style_color_1);
+			root.style.setProperty('--bottom-right-style-color-2', alt_2_style_color_2);
+			root.style.setProperty('--bottom-right-style-color-3', alt_2_style_color_3);
+			root.style.setProperty('--bottom-right-style-color-4', alt_2_style_color_4);
+			root.style.setProperty('--bottom-right-font', alt_2_font);
+			root.style.setProperty('--bottom-right-logo-size', alt_2_logo_size + "em");
+			root.style.setProperty('--bottom-right-corners', alt_2_corners + "em");
+			root.style.setProperty('--bottom-right-border-switch', alt_2_border_switch);
+			root.style.setProperty('--bottom-right-border_thickness_amount', alt_2_border_thickness_amount + "rem");			
 
-			root.style.setProperty('--alt-3-size', alt_3_size + "px");
-			root.style.setProperty('--alt-3-margin-h', alt_3_margin_h + "rem");
-			root.style.setProperty('--alt-3-margin-v', alt_3_margin_v + "rem");
-			root.style.setProperty('--alt-3-line-spacing', alt_3_line_spacing + "em");
-			root.style.setProperty('--alt-3-name-size', alt_3_name_size + "em");
-			root.style.setProperty('--alt-3-info-size', alt_3_info_size + "em");
-			root.style.setProperty('--alt-3-name-transform', alt_3_name_transform);
-			root.style.setProperty('--alt-3-info-transform', alt_3_info_transform);
-			root.style.setProperty('--alt-3-name-weight', alt_3_name_weight);
-			root.style.setProperty('--alt-3-name-style', alt_3_name_style);
-			root.style.setProperty('--alt-3-info-weight', alt_3_info_weight);
-			root.style.setProperty('--alt-3-info-style', alt_3_info_style);
-			root.style.setProperty('--alt-3-name-color', alt_3_name_color);
-			root.style.setProperty('--alt-3-info-color', alt_3_info_color);
-			root.style.setProperty('--alt-3-style-color-1', alt_3_style_color_1);
-			root.style.setProperty('--alt-3-style-color-2', alt_3_style_color_2);
-			root.style.setProperty('--alt-3-style-color-3', alt_3_style_color_3);
-			root.style.setProperty('--alt-3-style-color-4', alt_3_style_color_4);
-			root.style.setProperty('--alt-3-font', alt_3_font);
-			root.style.setProperty('--alt-3-logo-size', alt_3_logo_size + "em");
-			root.style.setProperty('--alt-3-corners', alt_3_corners + "em");
-			root.style.setProperty('--alt-3-border-switch', alt_3_border_switch);
-			root.style.setProperty('--alt-3-border_thickness_amount', alt_3_border_thickness_amount + "rem");
+			root.style.setProperty('--top-left-size', alt_3_size + "px");
+			root.style.setProperty('--top-left-margin-h', alt_3_margin_h + "rem");
+			root.style.setProperty('--top-left-margin-v', alt_3_margin_v + "rem");
+			root.style.setProperty('--top-left-line-spacing', alt_3_line_spacing + "em");
+			root.style.setProperty('--top-left-name-size', alt_3_name_size + "em");
+			root.style.setProperty('--top-left-value-size', alt_3_info_size + "em");
+			root.style.setProperty('--top-left-name-transform', alt_3_name_transform);
+			root.style.setProperty('--top-left-value-transform', alt_3_info_transform);
+			root.style.setProperty('--top-left-name-weight', alt_3_name_weight);
+			root.style.setProperty('--top-left-name-style', alt_3_name_style);
+			root.style.setProperty('--top-left-value-weight', alt_3_info_weight);
+			root.style.setProperty('--top-left-value-style', alt_3_info_style);
+			root.style.setProperty('--top-left-name-color', alt_3_name_color);
+			root.style.setProperty('--top-left-value-color', alt_3_info_color);
+			root.style.setProperty('--top-left-style-color-1', alt_3_style_color_1);
+			root.style.setProperty('--top-left-style-color-2', alt_3_style_color_2);
+			root.style.setProperty('--top-left-style-color-3', alt_3_style_color_3);
+			root.style.setProperty('--top-left-style-color-4', alt_3_style_color_4);
+			root.style.setProperty('--top-left-font', alt_3_font);
+			root.style.setProperty('--top-left-logo-size', alt_3_logo_size + "em");
+			root.style.setProperty('--top-left-corners', alt_3_corners + "em");
+			root.style.setProperty('--top-left-border-switch', alt_3_border_switch);
+			root.style.setProperty('--top-left-border_thickness_amount', alt_3_border_thickness_amount + "rem");
 
-			root.style.setProperty('--alt-4-size', alt_4_size + "px");
-			root.style.setProperty('--alt-4-margin-h', alt_4_margin_h + "rem");
-			root.style.setProperty('--alt-4-margin-v', alt_4_margin_v + "rem");
-			root.style.setProperty('--alt-4-line-spacing', alt_4_line_spacing + "em");
-			root.style.setProperty('--alt-4-name-size', alt_4_name_size + "em");
-			root.style.setProperty('--alt-4-info-size', alt_4_info_size + "em");
-			root.style.setProperty('--alt-4-name-transform', alt_4_name_transform);
-			root.style.setProperty('--alt-4-info-transform', alt_4_info_transform);
-			root.style.setProperty('--alt-4-name-weight', alt_4_name_weight);
-			root.style.setProperty('--alt-4-name-style', alt_4_name_style);
-			root.style.setProperty('--alt-4-info-weight', alt_4_info_weight);
-			root.style.setProperty('--alt-4-info-style', alt_4_info_style);
-			root.style.setProperty('--alt-4-name-color', alt_4_name_color);
-			root.style.setProperty('--alt-4-info-color', alt_4_info_color);
-			root.style.setProperty('--alt-4-style-color-1', alt_4_style_color_1);
-			root.style.setProperty('--alt-4-style-color-2', alt_4_style_color_2);
-			root.style.setProperty('--alt-4-style-color-3', alt_4_style_color_3);
-			root.style.setProperty('--alt-4-style-color-4', alt_4_style_color_4);			
-			root.style.setProperty('--alt-4-font', alt_4_font);
-			root.style.setProperty('--alt-4-logo-size', alt_4_logo_size + "em");
-			root.style.setProperty('--alt-4-corners', alt_4_corners + "em");
-			root.style.setProperty('--alt-4-border-switch', alt_4_border_switch);
-			root.style.setProperty('--alt-4-border_thickness_amount', alt_4_border_thickness_amount + "rem");			
+			root.style.setProperty('--top-right-size', alt_4_size + "px");
+			root.style.setProperty('--top-right-margin-h', alt_4_margin_h + "rem");
+			root.style.setProperty('--top-right-margin-v', alt_4_margin_v + "rem");
+			root.style.setProperty('--top-right-line-spacing', alt_4_line_spacing + "em");
+			root.style.setProperty('--top-right-name-size', alt_4_name_size + "em");
+			root.style.setProperty('--top-right-value-size', alt_4_info_size + "em");
+			root.style.setProperty('--top-right-name-transform', alt_4_name_transform);
+			root.style.setProperty('--top-right-value-transform', alt_4_info_transform);
+			root.style.setProperty('--top-right-name-weight', alt_4_name_weight);
+			root.style.setProperty('--top-right-name-style', alt_4_name_style);
+			root.style.setProperty('--top-right-value-weight', alt_4_info_weight);
+			root.style.setProperty('--top-right-value-style', alt_4_info_style);
+			root.style.setProperty('--top-right-name-color', alt_4_name_color);
+			root.style.setProperty('--top-right-value-color', alt_4_info_color);
+			root.style.setProperty('--top-right-style-color-1', alt_4_style_color_1);
+			root.style.setProperty('--top-right-style-color-2', alt_4_style_color_2);
+			root.style.setProperty('--top-right-style-color-3', alt_4_style_color_3);
+			root.style.setProperty('--top-right-style-color-4', alt_4_style_color_4);			
+			root.style.setProperty('--top-right-font', alt_4_font);
+			root.style.setProperty('--top-right-logo-size', alt_4_logo_size + "em");
+			root.style.setProperty('--top-right-corners', alt_4_corners + "em");
+			root.style.setProperty('--top-right-border-switch', alt_4_border_switch);
+			root.style.setProperty('--top-right-border_thickness_amount', alt_4_border_thickness_amount + "rem");			
 
 
 			//Hide the background shadow if color is transparent (end with ",0)")
 			if (alt_1_style_color_2.match(/,0\)$/)) {
-				root.style.setProperty('--alt-1-background', "0");
+				root.style.setProperty('--bottom-left-background', "0");
 			} else {
-				root.style.setProperty('--alt-1-background', "1");
+				root.style.setProperty('--bottom-left-background', "1");
 			}
 			if (alt_2_style_color_2.match(/,0\)$/)) {
-				root.style.setProperty('--alt-2-background', "0");
+				root.style.setProperty('--bottom-right-background', "0");
 			} else {
-				root.style.setProperty('--alt-2-background', "1");
+				root.style.setProperty('--bottom-right-background', "1");
 			}
 			if (alt_3_style_color_2.match(/,0\)$/)) {
-				root.style.setProperty('--alt-3-background', "0");
+				root.style.setProperty('--top-left-background', "0");
 			} else {
-				root.style.setProperty('--alt-3-background', "1");
+				root.style.setProperty('--top-left-background', "1");
 			}
 			if (alt_4_style_color_2.match(/,0\)$/)) {
-				root.style.setProperty('--alt-4-background', "0");
+				root.style.setProperty('--top-right-background', "0");
 			} else {
-				root.style.setProperty('--alt-4-background', "1");
+				root.style.setProperty('--top-right-background', "1");
 			}
 
 
 			if (alt_1_shadows == "false"){
-				root.style.setProperty('--alt-1-shadows', "none");
-				root.style.setProperty('--alt-1-shadows-graph', "none");
+				root.style.setProperty('--bottom-left-shadows', "none");
+				root.style.setProperty('--bottom-left-shadows-graph', "none");
 			}
 			if (alt_1_shadows == "true") {
-				root.style.setProperty('--alt-1-shadows', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_1_shadow_amount + ")");
+				root.style.setProperty('--bottom-left-shadows', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_1_shadow_amount + ")");
 				if (alt_1_background_switch == "false"){
-					root.style.setProperty('--alt-1-shadows-graph', "none");
+					root.style.setProperty('--bottom-left-shadows-graph', "none");
 				} else {
-					root.style.setProperty('--alt-1-shadows-graph', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_1_shadow_amount + ")");
+					root.style.setProperty('--bottom-left-shadows-graph', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_1_shadow_amount + ")");
 				} 
 			}
 
 			if (alt_2_shadows == "false") {
-				root.style.setProperty('--alt-2-shadows', "none");
-				root.style.setProperty('--alt-2-shadows-graph', "none");
+				root.style.setProperty('--bottom-right-shadows', "none");
+				root.style.setProperty('--bottom-right-shadows-graph', "none");
 			}
 			if (alt_2_shadows == "true") {
-				root.style.setProperty('--alt-2-shadows', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_2_shadow_amount + ")");
+				root.style.setProperty('--bottom-right-shadows', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_2_shadow_amount + ")");
 				if (alt_2_background_switch == "false"){
-					root.style.setProperty('--alt-2-shadows-graph', "none");
+					root.style.setProperty('--bottom-right-shadows-graph', "none");
 				} else {
-					root.style.setProperty('--alt-2-shadows-graph', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_2_shadow_amount + ")");
+					root.style.setProperty('--bottom-right-shadows-graph', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_2_shadow_amount + ")");
 				} 
 			}
 
 			if (alt_3_shadows == "false") {
-				root.style.setProperty('--alt-3-shadows', "none");
-				root.style.setProperty('--alt-3-shadows-graph', "none");
+				root.style.setProperty('--top-left-shadows', "none");
+				root.style.setProperty('--top-left-shadows-graph', "none");
 			}
 			if (alt_3_shadows == "true") {
-				root.style.setProperty('--alt-3-shadows', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_3_shadow_amount + ")");
+				root.style.setProperty('--top-left-shadows', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_3_shadow_amount + ")");
 				if (alt_3_background_switch == "false"){
-					root.style.setProperty('--alt-3-shadows-graph', "none");
+					root.style.setProperty('--top-left-shadows-graph', "none");
 				} else {
-					root.style.setProperty('--alt-3-shadows-graph', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_3_shadow_amount + ")");
+					root.style.setProperty('--top-left-shadows-graph', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_3_shadow_amount + ")");
 				} 
 			}
 			
 			if (alt_4_shadows == "false") {
-				root.style.setProperty('--alt-4-shadows', "none");
-				root.style.setProperty('--alt-4-shadows-graph', "none");
+				root.style.setProperty('--top-right-shadows', "none");
+				root.style.setProperty('--top-right-shadows-graph', "none");
 			}
 			if (alt_4_shadows == "true") {
-				root.style.setProperty('--alt-4-shadows', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_4_shadow_amount + ")");
+				root.style.setProperty('--top-right-shadows', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_4_shadow_amount + ")");
 				if (alt_4_background_switch == "false"){
-					root.style.setProperty('--alt-4-shadows-graph', "none");
+					root.style.setProperty('--top-right-shadows-graph', "none");
 				} else {
-					root.style.setProperty('--alt-4-shadows-graph', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_4_shadow_amount + ")");
+					root.style.setProperty('--top-right-shadows-graph', "0.1rem 0.1rem 0.2rem rgba(0,0,0," + alt_4_shadow_amount + ")");
 				} 
 			}
 		}
